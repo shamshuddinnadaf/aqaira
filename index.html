@@ -47,6 +47,20 @@
     });
     </script>
 
+    <script>
+
+    window.addEventListener("load", function(){
+
+    const loader = document.getElementById("loader");
+
+    setTimeout(function(){
+    loader.classList.add("loader-hidden");
+    }, 600);
+
+    });
+
+    </script>
+
 </head>
 
 <body>
@@ -218,4 +232,8 @@
 
 
 </body>
+
+<div id="loader">
+    <div class="loader-logo">AQAIRA</div>
+</div>
 </html>
