@@ -130,6 +130,32 @@ justify-content:center;
 align-items:center;
 text-align:center;
 }
+.hero{
+height:80vh;
+padding:40px 20px;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+@media(max-width:768px){
+
+.hero{
+height:70vh;
+padding:20px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.btn{
+padding:10px 18px;
+font-size:14px;
+}
+
+}
 
 .card img{
 width:100%;
@@ -184,3 +210,33 @@ html{
 scroll-behavior:smooth;
 }
 
+img{
+max-width:100%;
+height:auto;
+display:block;
+}
+.grid{
+display:flex;
+gap:30px;
+justify-content:center;
+margin-top:40px;
+flex-wrap:wrap;
+}
+.card{
+border:1px solid gold;
+padding:25px;
+width:250px;
+max-width:100%;
+}
+.slides img{
+width:280px;
+height:180px;
+}
+@media(max-width:768px){
+
+.slides img{
+width:220px;
+height:150px;
+}
+
+}
