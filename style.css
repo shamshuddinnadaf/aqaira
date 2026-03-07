@@ -15,9 +15,34 @@ color:white;
 }
 
 .logo{
-font-family:'Playfair Display',serif;
-font-size:28px;
-color:gold;
+font-family:'Playfair Display', serif;
+font-size:34px;
+font-weight:600;
+
+background:linear-gradient(
+90deg,
+#d4af37,
+#ffd700,
+#f5e6a3,
+#d4af37
+);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:goldShine 6s linear infinite;
+}
+
+@keyframes goldShine{
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:300%;
+}
 }
 
 nav a{
@@ -154,10 +179,3 @@ html{
 scroll-behavior:smooth;
 }
 
-.logo{
-font-family:'Playfair Display',serif;
-font-size:28px;
-background:linear-gradient(90deg,#d4af37,#ffd700);
--webkit-background-clip:text;
-color:transparent;
-}
