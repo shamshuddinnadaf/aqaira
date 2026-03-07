@@ -12,6 +12,41 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+
+    function toggleMenu(){
+    const nav=document.getElementById("navMenu");
+    nav.classList.toggle("active");
+    }
+
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+
+    const slider = document.getElementById("visionSlides");
+
+    window.slideLeft = function(){
+    if(slider){
+    slider.scrollBy({
+    left: -260,
+    behavior: "smooth"
+    });
+    }
+    }
+
+    window.slideRight = function(){
+    if(slider){
+    slider.scrollBy({
+    left: 260,
+    behavior: "smooth"
+    });
+    }
+    }
+
+    });
+    </script>
+
 </head>
 
 <body>
@@ -19,10 +54,16 @@
 <header>
 
     <div class="logo">
-        <img src="images/logo.png" alt="AQAIRA Logo">
+        <img src="images/logo.png" alt="AQAIRA">
     </div>
 
-    <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav id="navMenu">
         <a href="#about">About</a>
         <a href="#business">Businesses</a>
         <a href="#why">Why Choose Us</a>
@@ -47,31 +88,45 @@
 
     <h2>Our Vision</h2>
 
-    <div class="slides">
+    <div class="slider-wrapper">
 
-        <img src="images/slide1.jpg" loading="lazy">
-        <img src="images/slide2.jpg" loading="lazy">
-        <img src="images/slide3.jpg" loading="lazy">
-        <img src="images/slide4.jpg" loading="lazy">
-        <img src="images/slide5.jpg" loading="lazy">
-        <img src="images/slide6.jpg" loading="lazy">
+        <button class="slide-btn left" onclick="slideLeft()">❮</button>
+
+        <div class="slides" id="visionSlides">
+
+            <img src="images/slide1.jpg" loading="lazy">
+            <img src="images/slide2.jpg" loading="lazy">
+            <img src="images/slide3.jpg" loading="lazy">
+            <img src="images/slide4.jpg" loading="lazy">
+            <img src="images/slide5.jpg" loading="lazy">
+            <img src="images/slide6.jpg" loading="lazy">
+            <img src="images/slide7.jpg" loading="lazy">
+            <img src="images/slide8.jpg" loading="lazy">
+            <img src="images/slide9.jpg" loading="lazy">
+            <img src="images/slide10.jpg" loading="lazy">
+
+        </div>
+
+        <button class="slide-btn right" onclick="slideRight()">❯</button>
 
     </div>
 
 </section>
 
 
-
-<section id="about" class="section">
+<section id="about" class="section about-bg">
 
 <h2>About AQAIRA</h2>
 
-<p>
-AQAIRA is a modern business group focused on building
-innovative and scalable businesses across multiple industries.
-Our goal is to create value through premium products,
-strong service, and long-term vision.
-</p>
+    <p>
+        AQAIRA provides premium supply solutions for businesses,
+        events, and organizations. We focus on delivering reliable
+        products, efficient service, and consistent quality that
+        businesses can depend on every day.
+
+        Our commitment is built on three core values:
+        <strong>Quality • Reliability • Trust</strong>.
+    </p>
 
 </section>
 
@@ -107,7 +162,7 @@ strong service, and long-term vision.
 
 
 
-<section id="why" class="section">
+<section id="why" class="section why-bg">
 
 <h2>Why Choose AQAIRA</h2>
 
@@ -128,21 +183,21 @@ strong service, and long-term vision.
 
 <h2>Vision & Mission</h2>
 
-<p>
+    <p>
+        Our vision is to become a trusted supply partner for
+        businesses by delivering dependable products and
+        consistent service.
 
-Our vision is to build a globally trusted brand that delivers
-quality, innovation and reliability.
-
-Our mission is to grow multiple businesses under the
-AQAIRA brand while maintaining excellence and integrity.
-
-</p>
+        Our mission is to support businesses with practical
+        supply solutions while maintaining the values of
+        <strong>Quality • Reliability • Trust</strong>.
+    </p>
 
 </section>
 
 
 
-<section id="contact" class="section">
+<section id="contact" class="section contact-bg">
 
 <h2>Contact</h2>
 
@@ -156,7 +211,8 @@ AQAIRA brand while maintaining excellence and integrity.
 
 <footer>
 
-<p>© 2026 AQAIRA. All Rights Reserved.</p>
+    <p><strong>Quality • Reliability • Trust</strong></p>
+    <p>© 2026 AQAIRA. All Rights Reserved.</p>
 
 </footer>
 
