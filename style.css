@@ -29,9 +29,8 @@ font-weight:500;
 
 
 .hero h1{
-font-size:48px;
-font-family:'Playfair Display',serif;
-color:gold;
+font-size:60px;
+letter-spacing:1px;
 }
 
 .btn{
