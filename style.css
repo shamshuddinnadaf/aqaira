@@ -1,12 +1,16 @@
-body{
-margin:0;
-font-family:Poppins, sans-serif;
-background:white;
-color:#111;
-}
+/* GLOBAL */
 
 html{
 scroll-behavior:smooth;
+background:black;
+}
+
+body{
+margin:0;
+font-family:Poppins, sans-serif;
+background:black;
+color:white;
+overflow-x:hidden;
 }
 
 /* HEADER */
@@ -17,7 +21,6 @@ justify-content:space-between;
 align-items:center;
 padding:15px 8%;
 background:black;
-color:white;
 position:sticky;
 top:0;
 z-index:1000;
@@ -95,8 +98,6 @@ url("images/hero.jpg");
 background-size:cover;
 background-position:center;
 
-color:white;
-
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -124,6 +125,7 @@ font-weight:600;
 .section{
 padding:80px 15%;
 text-align:center;
+background:black;
 }
 
 .dark{
@@ -146,6 +148,7 @@ border:1px solid gold;
 padding:25px;
 width:250px;
 max-width:100%;
+background:black;
 }
 
 .card img{
@@ -187,8 +190,6 @@ display:flex;
 align-items:center;
 justify-content:center;
 }
-
-/* FIXED SLIDES */
 
 .slides{
 display:flex;
@@ -321,10 +322,8 @@ height:200px;
 background:
 linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
 url("images/about.jpg");
-
 background-size:cover;
 background-position:center;
-color:white;
 }
 
 /* WHY BACKGROUND */
@@ -333,10 +332,8 @@ color:white;
 background:
 linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
 url("images/why-choose.jpg");
-
 background-size:cover;
 background-position:center;
-color:white;
 }
 
 /* CONTACT BACKGROUND */
@@ -345,10 +342,8 @@ color:white;
 background:
 linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
 url("images/contact.jpg");
-
 background-size:cover;
 background-position:center;
-color:white;
 }
 
 /* PAGE LOADER */
@@ -366,8 +361,6 @@ align-items:center;
 z-index:9999;
 transition:opacity 0.6s ease, visibility 0.6s;
 }
-
-/* logo animation */
 
 .loader-logo{
 font-family:'Playfair Display', serif;
@@ -387,8 +380,6 @@ background-size:300%;
 
 animation:goldShine 4s linear infinite;
 }
-
-/* hide loader */
 
 .loader-hidden{
 opacity:0;
