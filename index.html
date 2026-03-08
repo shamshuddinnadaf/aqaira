@@ -1,63 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AQAIRA</title>
 
-    <link rel="icon" type="image/png" href="images/favicon.png">
-
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
     <script>
 
-    function toggleMenu(){
-    const nav=document.getElementById("navMenu");
-    nav.classList.toggle("active");
-    }
+        function toggleMenu(){
+        document.getElementById("navLinks").classList.toggle("active");
+        }
 
-    </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function(){
+        window.addEventListener("load",function(){
+        setTimeout(()=>{
+        document.getElementById("loader").classList.add("loader-hidden");
+        },600);
+        });
 
-    const slider = document.getElementById("visionSlides");
+        document.addEventListener("DOMContentLoaded", function(){
 
-    window.slideLeft = function(){
-    if(slider){
-    slider.scrollBy({
-    left: -260,
-    behavior: "smooth"
-    });
-    }
-    }
+        const slider=document.getElementById("visionSlides");
 
-    window.slideRight = function(){
-    if(slider){
-    slider.scrollBy({
-    left: 260,
-    behavior: "smooth"
-    });
-    }
-    }
+        window.slideLeft=function(){
+        slider.scrollBy({
+        left:-260,
+        behavior:"smooth"
+        });
+        }
 
-    });
-    </script>
+        window.slideRight=function(){
+        slider.scrollBy({
+        left:260,
+        behavior:"smooth"
+        });
+        }
 
-    <script>
-
-    window.addEventListener("load", function(){
-
-    const loader = document.getElementById("loader");
-
-    setTimeout(function(){
-    loader.classList.add("loader-hidden");
-    }, 600);
-
-    });
+        });
 
     </script>
 
@@ -65,10 +51,14 @@
 
 <body>
 
-<header>
+<div id="loader">
+    <div class="loader-logo">AQAIRA</div>
+</div>
 
-    <a href="#" class="logo">
-        <img src="images/logo.png" alt="AQAIRA Logo">
+<nav class="nav-bar">
+
+    <a href="#" class="nav-logo">
+        <img src="images/logo.png">
     </a>
 
     <div class="menu-toggle" onclick="toggleMenu()">
@@ -77,30 +67,87 @@
         <span></span>
     </div>
 
-    <nav id="navMenu">
+    <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#business">Businesses</a>
-        <a href="#why">Why Choose Us</a>
+        <a href="#why">Why</a>
         <a href="#vision">Vision</a>
         <a href="#contact">Contact</a>
-    </nav>
+    </div>
 
-</header>
-
+</nav>
 
 <section class="hero">
 
-<h2>Premium Supply Solutions For Businesses & Events</h2>
+    <h1 class="hero-title">AQAIRA</h1>
 
-<p>Quality • Reliability • Trust</p>
+    <p class="hero-tagline">Quality • Reliability • Trust</p>
 
-<a href="#business" class="btn">Explore Our Businesses</a>
+    <p class="hero-sub">Premium Supply Solutions for Businesses & Events</p>
 
 </section>
 
-<section class="slider">
+<section id="about">
+
+    <h2>About AQAIRA</h2>
+    <div class="divider"></div>
+
+    <p>
+        AQAIRA provides premium supply solutions for businesses,
+        events, and organizations.
+        We focus on delivering reliable products and consistent quality.
+        <strong>Quality • Reliability • Trust</strong>
+    </p>
+
+</section>
+
+<section id="business">
+
+    <h2>Our Businesses</h2>
+    <div class="divider"></div>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="images/supply.jpg">
+            <h3>AQAIRA Supplies</h3>
+            <p>Bulk supply solutions for events and businesses.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/eco.jpg">
+            <h3>AQAIRA Eco</h3>
+            <p>Eco friendly products and sustainable packaging.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/service.jpg">
+            <h3>AQAIRA Services</h3>
+            <p>Professional solutions designed for modern companies.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="why">
+
+    <h2>Why Choose AQAIRA</h2>
+    <div class="divider"></div>
+
+    <ul class="why">
+        <li>Premium Quality Standards</li>
+        <li>Modern Business Solutions</li>
+        <li>Customer First Approach</li>
+        <li>Scalable Business Vision</li>
+    </ul>
+
+</section>
+
+<section id="vision" class="slider">
 
     <h2>Our Vision</h2>
+    <div class="divider"></div>
 
     <div class="slider-wrapper">
 
@@ -108,16 +155,16 @@
 
         <div class="slides" id="visionSlides">
 
-            <img src="images/slide1.jpg" loading="lazy">
-            <img src="images/slide2.jpg" loading="lazy">
-            <img src="images/slide3.jpg" loading="lazy">
-            <img src="images/slide4.jpg" loading="lazy">
-            <img src="images/slide5.jpg" loading="lazy">
-            <img src="images/slide6.jpg" loading="lazy">
-            <img src="images/slide7.jpg" loading="lazy">
-            <img src="images/slide8.jpg" loading="lazy">
-            <img src="images/slide9.jpg" loading="lazy">
-            <img src="images/slide10.jpg" loading="lazy">
+            <img src="images/slide1.jpg">
+            <img src="images/slide2.jpg">
+            <img src="images/slide3.jpg">
+            <img src="images/slide4.jpg">
+            <img src="images/slide5.jpg">
+            <img src="images/slide6.jpg">
+            <img src="images/slide7.jpg">
+            <img src="images/slide8.jpg">
+            <img src="images/slide9.jpg">
+            <img src="images/slide10.jpg">
 
         </div>
 
@@ -127,113 +174,54 @@
 
 </section>
 
+<section class="vision-mission">
 
-<section id="about" class="section about-bg">
+    <h2>Vision & Mission</h2>
+    <div class="divider"></div>
 
-<h2>About AQAIRA</h2>
-
-    <p>
-        AQAIRA provides premium supply solutions for businesses,
-        events, and organizations. We focus on delivering reliable
-        products, efficient service, and consistent quality that
-        businesses can depend on every day.
-
-        Our commitment is built on three core values:
-        <strong>Quality • Reliability • Trust</strong>.
-    </p>
-
-</section>
-
-
-
-<section id="business" class="section dark">
-
-<h2>Our Businesses</h2>
-
-<div class="grid">
-
-    <div class="card">
-        <img src="images/supply.jpg" loading="lazy">
-        <h3>AQAIRA Supplies</h3>
-        <p>Bulk supply solutions for events and businesses.</p>
+    <div class="vision-box">
+        <p>
+            Our vision is to become a trusted supply partner for businesses
+            by delivering dependable products and consistent service.
+        </p>
     </div>
 
-    <div class="card">
-        <img src="images/eco.jpg" loading="lazy">
-        <h3>AQAIRA Eco</h3>
-        <p>Eco friendly products and sustainable packaging.</p>
+    <div class="vision-box">
+        <p>
+            Our mission is to support businesses with practical supply
+            solutions while maintaining the values of
+        </p>
+
+        <p style="margin-top:10px;font-weight:600;">
+            <strong>Quality • Reliability • Trust</strong>
+        </p>
     </div>
 
-    <div class="card">
-        <img src="images/service.jpg" loading="lazy">
-        <h3>AQAIRA Services</h3>
-        <p>Professional solutions designed for modern companies.</p>
-    </div>
-
-</div>
-
 </section>
 
+<section id="contact" class="contact contact-bg">
 
+    <h2>Contact</h2>
+    <div class="divider"></div>
 
-<section id="why" class="section why-bg">
-
-<h2>Why Choose AQAIRA</h2>
-
-<ul class="why">
-
-<li>Premium Quality Standards</li>
-<li>Modern Business Solutions</li>
-<li>Customer First Approach</li>
-<li>Scalable Business Vision</li>
-
-</ul>
+    <p>Email: contact@aqaira.com</p>
+    <p>Business inquiries welcome.</p>
 
 </section>
-
-
-
-<section id="vision" class="section dark">
-
-<h2>Vision & Mission</h2>
-
-    <p>
-        Our vision is to become a trusted supply partner for
-        businesses by delivering dependable products and
-        consistent service.
-
-        Our mission is to support businesses with practical
-        supply solutions while maintaining the values of
-        <strong>Quality • Reliability • Trust</strong>.
-    </p>
-
-</section>
-
-
-
-<section id="contact" class="section contact-bg">
-
-<h2>Contact</h2>
-
-<p>Email: contact@aqaira.com</p>
-
-<p>Business inquiries welcome.</p>
-
-</section>
-
-
 
 <footer>
 
-    <p><strong>Quality • Reliability • Trust</strong></p>
-    <p>© 2026 AQAIRA. All Rights Reserved.</p>
+    <div class="footer-logo">AQAIRA</div>
+
+    <p style="margin-top:10px;color:#bbb">
+        Quality • Reliability • Trust
+    </p>
+
+    <p style="margin-top:20px;color:#666">
+        © 2026 AQAIRA. All Rights Reserved.
+    </p>
 
 </footer>
 
-
 </body>
-
-<div id="loader">
-    <div class="loader-logo">AQAIRA</div>
-</div>
 </html>
