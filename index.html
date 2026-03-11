@@ -2,241 +2,374 @@
 <html lang="en">
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AQAIRA – Hospitality Essentials</title>
 
-    <title>AQAIRA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
 
-    <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@200;300;400;500;600&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="images/favicon.png">
+  <script>
+    function toggleMenu(){
+      document.getElementById("navLinks").classList.toggle("active");
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-
-    <script>
-
-        function toggleMenu(){
-        document.getElementById("navLinks").classList.toggle("active");
-        }
-
-        window.addEventListener("load",function(){
-        setTimeout(()=>{
+    window.addEventListener("load", function(){
+      setTimeout(()=>{
         document.getElementById("loader").classList.add("loader-hidden");
-        },600);
+      }, 700);
+    });
+
+    document.addEventListener("DOMContentLoaded", function(){
+      const slider = document.getElementById("visionSlides");
+      window.slideLeft = function(){
+        slider.scrollBy({ left:-276, behavior:"smooth" });
+      }
+      window.slideRight = function(){
+        slider.scrollBy({ left:276, behavior:"smooth" });
+      }
+
+      // Scroll reveal
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+          }
         });
-
-        document.addEventListener("DOMContentLoaded", function(){
-
-        const slider=document.getElementById("visionSlides");
-
-        window.slideLeft=function(){
-        slider.scrollBy({
-        left:-260,
-        behavior:"smooth"
-        });
-        }
-
-        window.slideRight=function(){
-        slider.scrollBy({
-        left:260,
-        behavior:"smooth"
-        });
-        }
-
-        });
-
-    </script>
+      },{ threshold:0.1 });
+      document.querySelectorAll('.card,.why-card,.vision-box,.sector-card').forEach(el=>{
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
 
 </head>
-
 <body>
 
+<!-- LOADER -->
 <div id="loader">
-    <div class="loader-logo">AQAIRA</div>
+  <div class="loader-logo">AQAIRA</div>
+  <div class="loader-bar"></div>
 </div>
 
+<!-- NAVBAR -->
 <nav class="nav-bar">
-
-    <a href="#" class="nav-logo">
-        <img src="images/logo.png">
-    </a>
-
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#business">Businesses</a>
-        <a href="#why">Why</a>
-        <a href="#vision">Vision</a>
-        <a href="#contact">Contact</a>
-    </div>
-
+  <a href="#" class="nav-logo">
+    <img src="images/logo.png" alt="AQAIRA">
+  </a>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#business">Businesses</a>
+    <a href="#why">Why Us</a>
+    <a href="#vision">Vision</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Get Quote</a>
+  </div>
 </nav>
 
-<!--<section class="hero">-->
-
-<!--    <h1 class="hero-title">AQAIRA</h1>-->
-
-<!--    <p class="hero-tagline">Quality • Reliability • Trust</p>-->
-
-<!--    <p class="hero-sub">Premium Supply Solutions for Businesses & Events</p>-->
-
-<!--</section>-->
-
+<!-- HERO -->
 <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-lines"></div>
-    <div class="hero-badge">Hospitality Essentials</div>
-    <div class="hero-wordmark hero-title">AQAIRA</div>
-    <div class="hero-tagline">Quality • Reliability • Trust</div>
-    <div class="hero-sub">Premium Supply Solutions for Businesses & Events.</div>
-    <div class="hero-ornament"></div>
-    <div class="scroll-hint">
-        <div class="scroll-text">Explore</div>
-        <div class="scroll-line"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-badge">✦ Hospitality Essentials ✦</div>
+  <div class="hero-wordmark">Quality. Reliability. Trust</div>
+<!--  <div class="hero-tagline">Quality &nbsp;•&nbsp; Reliability &nbsp;•&nbsp; Trust</div>-->
+  <div class="hero-sub">Premium Supply Solutions for Businesses &amp; Events.</div>
+  <div class="hero-ornament"></div>
+  <div class="hero-buttons">
+    <button class="btn-gold" onclick="document.getElementById('business').scrollIntoView({behavior:'smooth'})">Explore Products</button>
+    <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get In Touch</button>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-text">Scroll</div>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <div class="marquee-item">Bath Amenities<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Room Essentials<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Dining &amp; F&amp;B<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Eco Collection<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Custom Branding<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Bulk Supply<span class="marquee-dot"></span></div>
+    <div class="marquee-item">5-Star Quality<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Fast Delivery<span class="marquee-dot"></span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item">Bath Amenities<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Room Essentials<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Dining &amp; F&amp;B<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Eco Collection<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Custom Branding<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Bulk Supply<span class="marquee-dot"></span></div>
+    <div class="marquee-item">5-Star Quality<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Fast Delivery<span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-bg">
+  <span class="section-tag">Who We Are</span>
+  <h2>About <em>AQAIRA</em></h2>
+  <div class="divider"></div>
+  <div class="about-content">
+    <p>
+      AQAIRA provides premium supply solutions for businesses, events, and organizations.
+      We focus on delivering reliable products and consistent quality — from hospitality
+      essentials to eco-friendly alternatives. Everything we do is guided by
+
+    </p>
+      <p><strong style="color:var(--gold);font-weight:600;">Quality · Reliability · Trust.</strong></p>
+    <div class="about-values">
+      <div class="about-value">
+        <div class="about-value-num">500+</div>
+        <div class="about-value-label">Happy Partners</div>
+      </div>
+      <div class="about-value">
+        <div class="about-value-num">50+</div>
+        <div class="about-value-label">Product Lines</div>
+      </div>
+      <div class="about-value">
+        <div class="about-value-num">99%</div>
+        <div class="about-value-label">On-Time Delivery</div>
+      </div>
+      <div class="about-value">
+        <div class="about-value-num">24h</div>
+        <div class="about-value-label">Response Time</div>
+      </div>
     </div>
+  </div>
 </section>
 
-<section id="about" class="section about-bg">
-
-    <h2>About AQAIRA</h2>
-    <div class="divider"></div>
-
-    <p>
-        AQAIRA provides premium supply solutions for businesses,
-        events, and organizations.
-        We focus on delivering reliable products and consistent quality.
-    </p>
-    <p>
-        <strong>Quality • Reliability • Trust</strong>
-    </p>
-
-</section>
-
+<!-- BUSINESSES -->
 <section id="business">
+  <span class="section-tag">What We Offer</span>
+  <h2>Our <em>Businesses</em></h2>
+  <div class="divider"></div>
+  <div class="grid">
 
-    <h2>Our Businesses</h2>
-    <div class="divider"></div>
-
-    <div class="grid">
-
-        <div class="card">
-            <img src="images/supply.jpg">
-            <h3>AQAIRA Supplies</h3>
-            <p>Bulk supply solutions for events and businesses.</p>
-        </div>
-
-        <div class="card">
-            <img src="images/eco.jpg">
-            <h3>AQAIRA Eco</h3>
-            <p>Eco friendly products and sustainable packaging.</p>
-        </div>
-
-        <div class="card">
-            <img src="images/service.jpg">
-            <h3>AQAIRA Services</h3>
-            <p>Professional solutions designed for modern companies.</p>
-        </div>
-
+    <div class="card">
+      <img src="images/supply.jpg" alt="AQAIRA Supplies">
+      <div class="card-body">
+        <span class="card-tag">Division 01</span>
+        <h3>AQAIRA Supplies</h3>
+        <p>Bulk supply solutions for hotels, events and businesses. Premium disposables delivered on time, every time.</p>
+      </div>
     </div>
 
+    <div class="card">
+      <img src="images/eco.jpg" alt="AQAIRA Eco">
+      <div class="card-body">
+        <span class="card-tag">Division 02</span>
+        <h3>AQAIRA Eco</h3>
+        <p>Eco-friendly products and sustainable packaging for businesses that care about the planet and their brand.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/service.jpg" alt="AQAIRA Services">
+      <div class="card-body">
+        <span class="card-tag">Division 03</span>
+        <h3>AQAIRA Services</h3>
+        <p>Professional supply solutions designed for modern companies — custom branding, bulk orders and reliable partnerships.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
+<!-- WHY -->
 <section id="why">
+  <span class="section-tag">Why Choose Us</span>
+  <h2>Why <em>AQAIRA</em></h2>
+  <div class="divider"></div>
+  <div class="why-grid">
 
-    <h2>Why Choose AQAIRA</h2>
-    <div class="divider"></div>
+    <div class="why-card">
+      <div class="why-icon">🏆</div>
+      <h3>Premium Quality</h3>
+      <p>Every product meets 5-star standards — from materials to final packaging, quality is never compromised.</p>
+    </div>
 
-    <ul class="why">
-        <li>Premium Quality Standards</li>
-        <li>Modern Business Solutions</li>
-        <li>Customer First Approach</li>
-        <li>Scalable Business Vision</li>
-    </ul>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h3>Fast Delivery</h3>
+      <p>Reliable dispatch within 24–48 hours for all standard orders. Your operations never skip a beat.</p>
+    </div>
 
+    <div class="why-card">
+      <div class="why-icon">🎨</div>
+      <h3>Custom Branding</h3>
+      <p>Your logo and identity on every amenity — creating a seamless, memorable brand experience.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <h3>Scalable Vision</h3>
+      <p>One trusted supplier for all your hospitality essentials. Built to grow with your business.</p>
+    </div>
+
+  </div>
+  <!-- legacy list hidden, kept for compatibility -->
+  <ul class="why">
+    <li>Premium Quality Standards</li>
+    <li>Modern Business Solutions</li>
+    <li>Customer First Approach</li>
+    <li>Scalable Business Vision</li>
+  </ul>
 </section>
 
+<!-- VISION SLIDER -->
 <section id="vision" class="slider">
-
-    <h2>Our Vision</h2>
-    <div class="divider"></div>
-
-    <div class="slider-wrapper">
-
-        <button class="slide-btn left" onclick="slideLeft()">❮</button>
-
-        <div class="slides" id="visionSlides">
-
-            <img src="images/slide1.jpg">
-            <img src="images/slide2.jpg">
-            <img src="images/slide3.jpg">
-            <img src="images/slide4.jpg">
-            <img src="images/slide5.jpg">
-            <img src="images/slide6.jpg">
-            <img src="images/slide7.jpg">
-            <img src="images/slide8.jpg">
-            <img src="images/slide9.jpg">
-            <img src="images/slide10.jpg">
-
-        </div>
-
-        <button class="slide-btn right" onclick="slideRight()">❯</button>
-
+  <span class="section-tag">Our Gallery</span>
+  <h2>Our <em>Vision</em></h2>
+  <div class="divider"></div>
+  <div class="slider-wrapper">
+    <button class="slide-btn left" onclick="slideLeft()">&#10094;</button>
+    <div class="slides" id="visionSlides">
+      <img src="images/slide1.jpg" alt="Vision 1">
+      <img src="images/slide2.jpg" alt="Vision 2">
+      <img src="images/slide3.jpg" alt="Vision 3">
+      <img src="images/slide4.jpg" alt="Vision 4">
+      <img src="images/slide5.jpg" alt="Vision 5">
+      <img src="images/slide6.jpg" alt="Vision 6">
+      <img src="images/slide7.jpg" alt="Vision 7">
+      <img src="images/slide8.jpg" alt="Vision 8">
+      <img src="images/slide9.jpg" alt="Vision 9">
+      <img src="images/slide10.jpg" alt="Vision 10">
     </div>
-
+    <button class="slide-btn right" onclick="slideRight()">&#10095;</button>
+  </div>
 </section>
 
+<!-- VISION & MISSION -->
 <section class="vision-mission">
-
-    <h2>Vision & Mission</h2>
-    <div class="divider"></div>
+  <span class="section-tag">Our Purpose</span>
+  <h2>Vision &amp; <em>Mission</em></h2>
+  <div class="divider"></div>
+  <div class="vision-boxes">
 
     <div class="vision-box">
-        <p>
-            Our vision is to become a trusted supply partner for businesses
-            by delivering dependable products and consistent service.
-        </p>
+      <span class="vision-box-tag">Our Vision</span>
+      <h3>Where We're Going</h3>
+      <p>
+        Our vision is to become the most trusted premium supply partner for businesses
+        across hospitality, events and corporate sectors — delivering dependable products
+        and consistent service that elevate every guest experience.
+      </p>
     </div>
 
     <div class="vision-box">
-        <p>
-            Our mission is to support businesses with practical supply
-            solutions while maintaining the values of
-        </p>
-
-        <p style="margin-top:10px;font-weight:600;">
-            <strong>Quality • Reliability • Trust</strong>
-        </p>
+      <span class="vision-box-tag">Our Mission</span>
+      <h3>What Drives Us</h3>
+      <p>
+        Our mission is to support businesses with practical, premium supply solutions
+        while maintaining the values that define everything we do.
+      </p>
+      <p class="vision-tagline">Quality &nbsp;·&nbsp; Reliability &nbsp;·&nbsp; Trust</p>
     </div>
 
+  </div>
 </section>
 
-<section id="contact" class="contact contact-bg">
+<!-- CONTACT -->
+<section id="contact" class="contact-bg">
+  <span class="section-tag">Get In Touch</span>
+  <h2>Let's <em>Work</em> Together</h2>
+  <div class="divider"></div>
+  <div class="contact-grid">
 
-    <h2>Contact</h2>
-    <div class="divider"></div>
+    <div class="contact-info">
+      <p>Ready to elevate your guest experience or event? Reach out for a custom quote, product catalog or partnership inquiry.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div>
+          <span class="contact-detail-label">Email</span>
+          <div class="contact-detail-text">contact@aqaira.com</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🌐</div>
+        <div>
+          <span class="contact-detail-label">Website</span>
+          <div class="contact-detail-text">www.aqaira.com</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">💼</div>
+        <div>
+          <span class="contact-detail-label">Inquiries</span>
+          <div class="contact-detail-text">Business inquiries welcome.<br>Bulk orders · Custom branding · Partnerships</div>
+        </div>
+      </div>
+    </div>
 
-    <p>Email: contact@aqaira.com</p>
-    <p>Business inquiries welcome.</p>
+    <div class="contact-form">
+      <div class="contact-row">
+        <input class="contact-input" type="text" placeholder="Your Name">
+        <input class="contact-input" type="text" placeholder="Business Name">
+      </div>
+      <input class="contact-input" type="email" placeholder="Email Address">
+      <input class="contact-input" type="tel" placeholder="Phone Number">
+      <select class="contact-input" style="cursor:pointer;">
+        <option value="" disabled selected>Product Category</option>
+        <option>Bath &amp; Body Amenities</option>
+        <option>Room Essentials</option>
+        <option>Dining &amp; F&amp;B</option>
+        <option>Eco Range</option>
+        <option>Custom Branding</option>
+        <option>All Categories</option>
+      </select>
+      <textarea class="contact-input" rows="3" placeholder="Tell us about your requirements..."></textarea>
+      <button class="btn-gold" style="width:100%;padding:16px;font-size:11px;">Send Inquiry →</button>
+    </div>
 
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-
-    <div class="footer-logo">AQAIRA</div>
-
-    <p style="margin-top:10px;color:#bbb">
-        Quality • Reliability • Trust
-    </p>
-
-    <p style="margin-top:20px;color:#666">
-        © 2026 AQAIRA. All Rights Reserved.
-    </p>
-
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">AQAIRA</div>
+      <div class="footer-tagline">Quality · Reliability · Trust</div>
+      <p class="footer-about">Premium hospitality essentials supplier for hotels, resorts, events and businesses. Delivering luxury at every touchpoint.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Quick Links</div>
+      <a href="#about">About</a>
+      <a href="#business">Businesses</a>
+      <a href="#why">Why AQAIRA</a>
+      <a href="#vision">Vision</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Contact</div>
+      <a href="mailto:contact@aqaira.com">contact@aqaira.com</a>
+      <a href="#">www.aqaira.com</a>
+      <a href="#">Business Inquiries</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 AQAIRA. All Rights Reserved.</div>
+    <div class="footer-socials">
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">ig</a>
+      <a class="social-btn" href="#">fb</a>
+      <a class="social-btn" href="#">wa</a>
+    </div>
+  </div>
 </footer>
 
 </body>
