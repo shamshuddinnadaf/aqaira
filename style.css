@@ -168,7 +168,7 @@ section{
   font-family:'Barlow',sans-serif;
   font-size:9px; font-weight:700;
   letter-spacing:6px; text-transform:uppercase;
-  color:var(--gold);
+  /*color:var(--gold);*/
   border:1px solid rgba(201,168,76,0.4);
   padding:9px 28px;
   margin-bottom:36px;
@@ -202,7 +202,7 @@ section{
   position:relative; z-index:2;
   font-family:'Cormorant Garamond',serif;
   font-size:22px; font-weight:300; font-style:italic;
-  color:rgba(201,168,76,0.75);
+  /*color:rgba(201,168,76,0.75);*/
   margin-top:14px;
   animation:fadeUp 1s ease 0.8s both;
 }
